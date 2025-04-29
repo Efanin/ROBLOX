@@ -1,0 +1,7 @@
+script.Parent.Touched:Connect(function(hit)
+	if hit.Parent:FindFirstChild("Humanoid") ~= nil then
+		local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+		player.leaderstats.Coins.Value +=5
+		script.Parent:Remove()
+	end
+end)
