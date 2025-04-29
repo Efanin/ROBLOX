@@ -1,0 +1,10 @@
+local promt = script.Parent:FindFirstChild("ProximityPrompt")
+local money = script.Parent:FindFirstChild("Money")
+
+promt.Triggered:Connect(function(player)
+	player.leaderstats.Coins.Value -= 1
+	wait(1)
+	local newMoney = money:Clone()
+	newMoney.Parent = script.Parent
+	newMoney.Position = script.Parent.Position + Vector3.new(0,2,0)
+end)
