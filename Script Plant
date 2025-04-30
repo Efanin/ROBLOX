@@ -1,0 +1,23 @@
+local promt = script.Parent:FindFirstChild("ProximityPrompt")
+local money = script.Parent:FindFirstChild("Money")
+local grass = script.Parent:FindFirstChild("grass")
+local price = 3
+local time = 1
+
+promt.Triggered:Connect(function(player)
+	if player.leaderstats.Coins.Value < price then
+		return
+	end
+	player.leaderstats.Coins.Value -= price
+	promt.Enabled = false
+	for i = 1, 10 do
+		grass.Size += Vector3.new(0.1, 0.1, 0.1)  -- Incrementally increase the size
+		wait(time)  -- Wait for 1 second
+	end
+	grass.Size -= Vector3.new(1, 1, 1)
+	promt.Enabled = true
+	local newMoney = money:Clone()
+	newMoney.Parent = script.Parent
+	newMoney.Position = script.Parent.Position + Vector3.new(0,5,0)
+end)
+
