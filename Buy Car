@@ -1,0 +1,15 @@
+local promt = script.Parent:FindFirstChild("ProximityPrompt")
+local car = game.Workspace:FindFirstChild("Car")
+
+promt.Triggered:Connect(function(player)
+	if player.leaderstats.Coins.Value < 400 then
+		return
+	end
+	player.leaderstats.Coins.Value -= 400
+	promt.Enabled = false
+	wait(1)
+	promt.Enabled = true
+	local newCar = car:Clone()
+	newCar.Parent = game.Workspace
+	newCar:PivotTo(CFrame.new(script.Parent.Position))
+end)
