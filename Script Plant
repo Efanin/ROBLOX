@@ -11,8 +11,8 @@ promt.Triggered:Connect(function(player)
 	player.leaderstats.Coins.Value -= price
 	promt.Enabled = false
 	for i = 1, 10 do
-		grass.Size += Vector3.new(0.1, 0.1, 0.1)  -- Incrementally increase the size
-		wait(time)  -- Wait for 1 second
+		grass.Size += Vector3.new(0.1, 0.1, 0.1)  
+		wait(time) 
 	end
 	grass.Size -= Vector3.new(1, 1, 1)
 	promt.Enabled = true
