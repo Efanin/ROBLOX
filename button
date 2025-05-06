@@ -1,0 +1,9 @@
+local button = script.Parent.buyButton
+local player  = game.Players.LocalPlayer
+local leaderstats = player:WaitForChild("leaderstats")
+local coins = leaderstats:WaitForChild("Coins")
+
+button.MouseButton1Click:Connect(function()
+	-- coins.Value+=1
+	player.leaderstats.Coins.Value += 1
+end)
