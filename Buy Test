@@ -1,0 +1,12 @@
+local promt = script.Parent:FindFirstChild("ProximityPrompt")
+local nuke = game.Workspace.Nuke
+local price = 1
+promt.Triggered:Connect(function(player)
+	if player.leaderstats.Score.Value < price then
+		return
+	end
+	player.leaderstats.Score.Value -= price
+	promt.Enabled = false
+	print("1232")
+	nuke:PivotTo(CFrame.new(script.Parent.Position))
+end)
