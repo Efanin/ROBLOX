@@ -1,0 +1,3 @@
+local plr = game.Workspace:WaitForChild(player.Name)
+plr:ScaleTo(0.1)
+player.Character.Humanoid.WalkSpeed = 10
