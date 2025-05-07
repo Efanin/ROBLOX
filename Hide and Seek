@@ -36,4 +36,4 @@ function hide(plr,trans)
 		end
 	end
 	plr.HumanoidRootPart.Transparency = 1
-end
+end)
