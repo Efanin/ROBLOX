@@ -1,0 +1,7 @@
+local Players = game:GetService("Players")
+local Badge = game:GetService("BadgeService")
+
+Players.PlayerAdded:Connect(function(player)
+	task.wait(10)
+	Badge:AwardBadge(player.UserId, 1210422880857504)
+end)
