@@ -1,0 +1,29 @@
+local promt = script.Parent:FindFirstChild("ProximityPrompt")
+local car = game.Workspace:FindFirstChild("Car") 
+local donat = game:GetService("MarketplaceService")
+local Players = game:GetService("Players") 
+
+local asset_id = 3286785771 
+
+promt.Triggered:Connect(function(player)
+	donat:PromptProductPurchase(player, asset_id)
+end)
+
+donat.PromptProductPurchaseFinished:Connect(function(userId, purchasedAssetId, wasPurchased)
+	if wasPurchased and purchasedAssetId == asset_id then
+		local player = Players:GetPlayerByUserId(userId) 
+
+		if player then
+			local newCar = car:Clone()
+			newCar.Parent = game.Workspace
+			local spawnPosition
+			if script.Parent:IsA("BasePart") then
+				spawnPosition = script.Parent.Position + Vector3.new(0, script.Parent.Size.Y / 2 + 3, 0) 
+			else
+				local parentPivot = script.Parent:GetPivot()
+				spawnPosition = parentPivot.Position + Vector3.new(0, 5, 0) 
+			end
+			newCar:PivotTo(CFrame.new(spawnPosition))
+		end
+	end
+end)
