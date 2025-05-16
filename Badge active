@@ -1,0 +1,6 @@
+local promt = script.Parent:FindFirstChild("ProximityPrompt")
+local Badge = game:GetService("BadgeService")
+
+promt.Triggered:Connect(function(player)
+	Badge:AwardBadge(player.UserId, 3292584679537336)
+end)
